@@ -22,7 +22,7 @@ func Blink(text string) {
 
 	for i := 0; i < 10; i++ {
 		fmt.Printf("\r%s( %s%s‿‿%s%s)", text, check,frame1[i%len(frame1)], frame2[i%len(frame2)], check)
-		time.Sleep(70 * time.Millisecond)
+		time.Sleep(130 * time.Millisecond)
 	}
 	fmt.Println()
 

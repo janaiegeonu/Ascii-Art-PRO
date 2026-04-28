@@ -1,12 +1,14 @@
 package animation
 
 import (
+	"Ascii-art-PRO/style"
 	"fmt"
 	"time"
 )
 
-func Loading(text string) {
+func Loading(text string) string {
 
+	empty := ""
 	frame := []string{
 		".       ",
 		"..      ",
@@ -28,8 +30,9 @@ func Loading(text string) {
 
 	for i := 0; i <= 31; i++ {
 
-		fmt.Printf("\r%s%s", text, frame[i%len(frame)])
+		fmt.Printf(style.Yellow(style.Bold("\r%s%s")), text, frame[i%len(frame)])
 		time.Sleep(40 * time.Millisecond)
 	}
 	fmt.Println()
+	return empty
 }
