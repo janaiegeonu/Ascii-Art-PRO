@@ -75,10 +75,11 @@ func main() {
 	animation.TypeWriter(style.White("2. shadow font"))
 	animation.TypeWriter(style.White("3. thinkertoy font\n"))
 	time.Sleep(600 * time.Millisecond)
-	animation.TypeWriter(style.Yellow(style.Dim(style.Bold("\tFONT SAMPLES"))))
+	animation.TypeWriter(style.Yellow(style.Dim(style.Bold("\t ✳ FONT SAMPLES ✳ "))))
 	fmt.Println()
 	time.Sleep(300 * time.Millisecond)
 	animation.TypeWriter(style.GreyBackground(style.Dim("⦁ standard font :")))
+	time.Sleep(500 * time.Millisecond)
 
 	fmt.Println(style.White(`
   _                               _   
@@ -90,10 +91,12 @@ func main() {
 _/ |                                  
 |__/                                 
 `))
+	fmt.Println(style.Grey("___________________________________________________________________________"))
 
 	time.Sleep(600 * time.Millisecond)
 
 	animation.TypeWriter(style.GreyBackground(style.Dim("⦁ shadow font :")))
+	time.Sleep(500 * time.Millisecond)
 
 	fmt.Println(style.White(`
                                        
@@ -106,8 +109,11 @@ _/ |
 _|                                     
 `))
 
+	fmt.Println(style.Grey("___________________________________________________________________________"))
+
 	time.Sleep(600 * time.Millisecond)
 	animation.TypeWriter(style.GreyBackground(style.Dim("⦁ thinkertoy font :")))
+	time.Sleep(500 * time.Millisecond)
 
 	fmt.Println(style.White(`
     o                    o  
@@ -117,9 +123,11 @@ _|
 o   o                       
  o-o                       
 `))
+	fmt.Println(style.Grey("___________________________________________________________________________"))
+
 	time.Sleep(300 * time.Millisecond)
 
-	animation.Rainbow("\tASCII-ART CUSTOMIZATION")
+	animation.Rainbow("\t✳ ASCII-ART CUSTOMIZATION ✳")
 	fmt.Println()
 	animation.TypeWriter(style.Yellow(style.Dim("this Program allows the user to customize the text ASCII-art output to different format ")))
 	animation.TypeWriter(style.Yellow(style.Dim("it supports colour customization.. Avaliable colours are;")))
@@ -153,6 +161,27 @@ o   o
 	animation.TypeWriter(style.White("‣ STRIPES"))
 	time.Sleep(400 * time.Millisecond)
 
-	
+	fmt.Println()
+	fmt.Println(style.Grey("___________________________________________________________________________"))
+
+	fmt.Println(style.GreyBackground(" ENTER YOUR OPTION TO CONTINUE "))
+	fmt.Println()
+	fmt.Println(style.Grey("1. Start = To start main program"))
+	fmt.Println(style.Grey("2. Instructions = To display the Instructions again"))
+	fmt.Println(style.Grey("3. End = To Terminate the program"))
+	fmt.Println()
+	fmt.Println("\033[1m\033[42m"+" START "+"\033[0m", "====", "\033[1m\033[46m"+" INSTRUCTIONS "+"\033[0m", "====", "\033[1m\033[41m"+" END "+"\033[0m")
+
+     
+
+
+
+
+	fmt.Println(style.Green("___________________________________________________________________________"))
+
+	animation.TypeWriter(style.Green(style.Italic("\n▶ NOW LET'S DIVE INTO THE PROGRAM FULLY : " + fullname)))
+
+	fmt.Println(style.Green("___________________________________________________________________________"))
+
 
 }
