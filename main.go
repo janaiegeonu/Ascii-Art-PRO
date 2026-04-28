@@ -71,13 +71,16 @@ func main() {
 	fmt.Println(style.Yellow("___________________________________________________________________________\n"))
 	animation.TypeWriter(style.Yellow(style.Dim("This an Ascii-art CLI program to print out text into a beautiful Ascii-Art font.")))
 	animation.TypeWriter(style.Yellow(style.Dim("it has three Ascii-art font style with are ; ")))
-	animation.TypeWriter(style.Yellow(style.Dim("1. standard font")))
-	animation.TypeWriter(style.Yellow(style.Dim("2. shadow font")))
-	animation.TypeWriter(style.Yellow(style.Dim("3. thinkertoy font\n")))
-	animation.TypeWriter(style.Yellow(style.Dim("\tFONT SAMPLES")))
-	animation.TypeWriter(style.Yellow(style.Dim("standard font :")))
+	animation.TypeWriter(style.White("1. standard font"))
+	animation.TypeWriter(style.White("2. shadow font"))
+	animation.TypeWriter(style.White("3. thinkertoy font\n"))
+	time.Sleep(600 * time.Millisecond)
+	animation.TypeWriter(style.Yellow(style.Dim(style.Bold("\tFONT SAMPLES"))))
+	fmt.Println()
+	time.Sleep(300 * time.Millisecond)
+	animation.TypeWriter(style.GreyBackground(style.Dim("⦁ standard font :")))
 
-	fmt.Println(style.Red(`
+	fmt.Println(style.White(`
   _                               _   
  (_)                             (_)  
   _     __ _    _ __      __ _    _   
@@ -87,5 +90,69 @@ func main() {
 _/ |                                  
 |__/                                 
 `))
+
+	time.Sleep(600 * time.Millisecond)
+
+	animation.TypeWriter(style.GreyBackground(style.Dim("⦁ shadow font :")))
+
+	fmt.Println(style.White(`
+                                       
+  _|                                _|  
+        _|_|_|  _|_|_|      _|_|_|      
+  _|  _|    _|  _|    _|  _|    _|  _|  
+  _|  _|    _|  _|    _|  _|    _|  _|  
+  _|    _|_|_|  _|    _|    _|_|_|  _|  
+  _|                                    
+_|                                     
+`))
+
+	time.Sleep(600 * time.Millisecond)
+	animation.TypeWriter(style.GreyBackground(style.Dim("⦁ thinkertoy font :")))
+
+	fmt.Println(style.White(`
+    o                    o  
+        oo   o-o    oo      
+    o  | |   |  |  | |   |  
+    |  o-o-  o  o  o-o-  |  
+o   o                       
+ o-o                       
+`))
+	time.Sleep(300 * time.Millisecond)
+
+	animation.Rainbow("\tASCII-ART CUSTOMIZATION")
+	fmt.Println()
+	animation.TypeWriter(style.Yellow(style.Dim("this Program allows the user to customize the text ASCII-art output to different format ")))
+	animation.TypeWriter(style.Yellow(style.Dim("it supports colour customization.. Avaliable colours are;")))
+	animation.TypeWriter(style.White("‣ RED"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ YELLOW"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ GREEN"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ BLUE"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ CYAN"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ MAGENTA"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ PURPLE"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ DARK RED"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ DARK YELLOW"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ WHITE"))
+	fmt.Println()
+	animation.TypeWriter(style.Yellow(style.Dim("⦁ it also supports text format Styles customization.. Avaliable Styles are;")))
+	animation.TypeWriter(style.White("‣ BOLD"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ DIM"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ ITALIC"))
+	time.Sleep(400 * time.Millisecond)
+	animation.TypeWriter(style.White("‣ STRIPES"))
+	time.Sleep(400 * time.Millisecond)
+
+	
 
 }
