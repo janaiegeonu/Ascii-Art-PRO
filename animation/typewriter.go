@@ -14,3 +14,13 @@ func TypeWriter(text string) {
 	fmt.Println()
 
 }
+
+func TypeWriterSlow(text string) {
+
+	for _, char := range text {
+		fmt.Printf("%c", char)
+		time.Sleep(40 * time.Millisecond)
+	}
+	fmt.Println()
+
+}

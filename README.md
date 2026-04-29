@@ -8,8 +8,8 @@ import (
 	"time"
 )
 
-func clear() {
-	fmt.Print("\033[3J\033[H\033[2J")
+func clear() {fmt.Print("\033[3J\033[H\033[2J")
+	
 }
 
 func main() {
