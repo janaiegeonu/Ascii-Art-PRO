@@ -66,10 +66,9 @@ func main() {
 	}
 	fmt.Println(style.Green("___________________________________________________________________________"))
 
-	animation.TypeWriter(style.Green("⬩\nNAME HAS BEEN SAVED SUCCESSFULLY 🗹"))
+	animation.TypeWriter(style.Green("\nNAME HAS BEEN SAVED SUCCESSFULLY 🗹"))
 
 	fmt.Println(style.Green("___________________________________________________________________________"))
-	fmt.Println(fullname)
 	time.Sleep(2000 * time.Millisecond)
 	fmt.Print("\033[3J\033[H\033[2J")
 	fmt.Println()
@@ -224,13 +223,33 @@ o   o
 	fmt.Println(style.BlueBackground(style.Bold("\t          ● ASCII-ART CLI PROGRAM ●           ")))
 	(animation.Blink("      \t\t\t "))
 	fmt.Println()
-	fmt.Println(style.BlueBackground(style.Bold("🃟 USER : " + fullname + "\n")))
+	fmt.Print("◉ ")
+	fmt.Println(style.GreyBackground(style.Bold("USER : " + fullname + "\n")))
 	fmt.Println(style.Green("___________________________________________________________________________"))
 
 	animation.TypeWriter(style.Green(style.Italic("\n▶ Enter your input text...")))
 
 	fmt.Println(style.Green("___________________________________________________________________________"))
 
+	var inputText string
+
+	for {
+
+		fmt.Println()
+		fmt.Print(style.Blue(style.Bold("⚬ TEXT : ")))
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		if input == "" {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Text can't be empty"))))
+			continue
+		}
+
+		if input 
 
 
+
+
+
+	}
 }
