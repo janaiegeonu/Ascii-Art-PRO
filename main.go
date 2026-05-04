@@ -159,6 +159,8 @@ o   o
 	animation.TypeWriterSlow(style.White("‣ DARK YELLOW"))
 	time.Sleep(200 * time.Millisecond)
 	animation.TypeWriterSlow(style.White("‣ WHITE"))
+	time.Sleep(200 * time.Millisecond)
+	animation.TypeWriterSlow(style.White("‣ GREY"))
 	fmt.Println()
 	animation.TypeWriterSlow(style.Yellow(style.Dim("⦁ it also supports text format Styles customization.. Avaliable Styles are;")))
 	animation.TypeWriterSlow(style.White("‣ BOLD"))
@@ -245,11 +247,116 @@ o   o
 			continue
 		}
 
-		if input 
+		if input == "None" {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Text must have an input"))))
+			continue
+		}
 
+		inputText = input
 
-
-
+		break
 
 	}
+	fmt.Println(inputText)
+
+	var font string
+
+	for {
+
+		fmt.Println()
+		fmt.Print(style.Blue(style.Bold("⚬ FONT : ")))
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		if input == "" {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Can't be empty"))))
+			continue
+
+		}
+		font = Case(input)
+
+		switch font {
+		case "Standard":
+		case "Shadow":
+		case "Thinkertoy":
+		default:
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: font style not found"))))
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Standard, Shadow, Thinkertoy"))))
+			continue
+		}
+
+		break
+	}
+	var colour string
+
+	for {
+
+		fmt.Println()
+		fmt.Print(style.Blue(style.Bold("⚬ COLOUR : ")))
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		if input == "" {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Can't be empty"))))
+			continue
+
+		}
+
+		colour = Case(input)
+
+		switch colour {
+
+		case "Yellow":
+			colour = style.Yellow(inputText)
+		case "Red":
+			colour = style.Red(inputText)
+		case "Blue":
+			colour = style.Blue(inputText)
+		case "Green":
+			colour = style.Green(inputText)
+		case "Magenta":
+			colour = style.Magenta(inputText)
+		case "Cyan":
+			colour = style.Cyan(inputText)
+		case "Dark Red":
+			colour = style.Red(style.Dim(inputText))
+		case "Dark Yellow":
+			colour = style.Yellow(style.Dim(inputText))
+		case "Purple":
+			colour = style.Magenta(style.Dim(inputText))
+		case "White":
+			colour = style.White(inputText)
+		case "Grey":
+			colour = style.Grey(inputText)
+		case "None":
+			colour = inputText
+		default:
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Colour style not found"))))
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey"))))
+			continue
+
+		}
+
+		break
+	}
+
+	var Style string
+
+	for {
+
+		fmt.Println()
+		fmt.Print(style.Blue(style.Bold("⚬ STYLE : ")))
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		if input == "" {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Can't be empty"))))
+			continue
+
+		}
+
+		Style = Case(input)
+
+	}
+
 }
