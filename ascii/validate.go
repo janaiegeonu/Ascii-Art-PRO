@@ -5,12 +5,12 @@ import (
 	"fmt"
 )
 
-func Validate(input string) error {
+func Validate(input string) (rune, error) {
 
 	for _, char := range input {
 		if char != '\n' && (char < 32 || char > 126) {
-			return fmt.Errorf(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: text character doesn't have a ASCII value"))))
+			return char, fmt.Errorf(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: text character doesn't have a ASCII value"))))
 		}
 	}
-	return nil
+	return 0, nil
 }

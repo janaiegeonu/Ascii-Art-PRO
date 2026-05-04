@@ -2,6 +2,7 @@ package main
 
 import (
 	"Ascii-art-PRO/animation"
+	"Ascii-art-PRO/ascii"
 	"Ascii-art-PRO/style"
 	"bufio"
 	"fmt"
@@ -69,108 +70,6 @@ func main() {
 	animation.TypeWriter(style.Green("\nNAME HAS BEEN SAVED SUCCESSFULLY 🗹"))
 
 	fmt.Println(style.Green("___________________________________________________________________________"))
-	time.Sleep(2000 * time.Millisecond)
-	fmt.Print("\033[3J\033[H\033[2J")
-	fmt.Println()
-	fmt.Println(style.BlueBackground(style.Bold("\t          ● ASCII-ART CLI PROGRAM ●           ")))
-	fmt.Println("\t\t\t( ｡" + style.Yellow("◕") + "‿‿" + style.Yellow("◕") + "｡)")
-
-	fmt.Println()
-	animation.Loading("● INSTRUCTIONS & README")
-	fmt.Println(style.Yellow("___________________________________________________________________________\n"))
-	animation.TypeWriterSlow(style.Yellow(style.Dim("This an Ascii-art CLI program to print out text into a beautiful Ascii-Art font.")))
-	animation.TypeWriterSlow(style.Yellow(style.Dim("it has three Ascii-art font style with are ; ")))
-	animation.TypeWriterSlow(style.White("1. standard font"))
-	animation.TypeWriterSlow(style.White("2. shadow font"))
-	animation.TypeWriterSlow(style.White("3. thinkertoy font\n"))
-	time.Sleep(600 * time.Millisecond)
-	animation.TypeWriterSlow(style.Yellow(style.Dim(style.Bold("\t ✳ FONT SAMPLES ✳ "))))
-	fmt.Println()
-	time.Sleep(300 * time.Millisecond)
-	animation.TypeWriterSlow(style.GreyBackground(style.Dim("⦁ standard font :")))
-	time.Sleep(500 * time.Millisecond)
-
-	fmt.Println(style.White(`
-  _                               _   
- (_)                             (_)  
-  _     __ _    _ __      __ _    _   
- | |   / _` + "`" + ` |  | '_ \    / _` + "`" + ` |  | |  
- | |  | (_| |  | | | |  | (_| |  | |  
- | |   \__,_|  |_| |_|   \__,_|  |_|  
-_/ |                                  
-|__/                                 
-`))
-	fmt.Println(style.Grey("___________________________________________________________________________"))
-
-	time.Sleep(600 * time.Millisecond)
-
-	animation.TypeWriterSlow(style.GreyBackground(style.Dim("⦁ shadow font :")))
-	time.Sleep(500 * time.Millisecond)
-
-	fmt.Println(style.White(`
-                                       
-  _|                                _|  
-        _|_|_|  _|_|_|      _|_|_|      
-  _|  _|    _|  _|    _|  _|    _|  _|  
-  _|  _|    _|  _|    _|  _|    _|  _|  
-  _|    _|_|_|  _|    _|    _|_|_|  _|  
-  _|                                    
-_|                                     
-`))
-
-	fmt.Println(style.Grey("___________________________________________________________________________"))
-
-	time.Sleep(600 * time.Millisecond)
-	animation.TypeWriterSlow(style.GreyBackground(style.Dim("⦁ thinkertoy font :")))
-	time.Sleep(500 * time.Millisecond)
-
-	fmt.Println(style.White(`
-    o                    o  
-        oo   o-o    oo      
-    o  | |   |  |  | |   |  
-    |  o-o-  o  o  o-o-  |  
-o   o                       
- o-o                       
-`))
-	fmt.Println(style.Grey("___________________________________________________________________________"))
-
-	time.Sleep(300 * time.Millisecond)
-
-	animation.Rainbow("\t✳ ASCII-ART CUSTOMIZATION ✳")
-	fmt.Println()
-	animation.TypeWriterSlow(style.Yellow(style.Dim("this Program allows the user to customize the text ASCII-art output to different format ")))
-	animation.TypeWriterSlow(style.Yellow(style.Dim("it supports colour customization.. Avaliable colours are;")))
-	animation.TypeWriterSlow(style.White("‣ RED"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ YELLOW"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ GREEN"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ BLUE"))
-	time.Sleep(400 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ CYAN"))
-	time.Sleep(400 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ MAGENTA"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ PURPLE"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ DARK RED"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ DARK YELLOW"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ WHITE"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ GREY"))
-	fmt.Println()
-	animation.TypeWriterSlow(style.Yellow(style.Dim("⦁ it also supports text format Styles customization.. Avaliable Styles are;")))
-	animation.TypeWriterSlow(style.White("‣ BOLD"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ DIM"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ ITALIC"))
-	time.Sleep(200 * time.Millisecond)
-	animation.TypeWriterSlow(style.White("‣ STRIPES"))
-	time.Sleep(1600 * time.Millisecond)
 
 	fmt.Println()
 	fmt.Println(style.Grey("___________________________________________________________________________"))
@@ -252,12 +151,23 @@ o   o
 			continue
 		}
 
-		inputText = input
+		if strings.HasPrefix(input, "\\n") && strings.HasSuffix(input, "\\n") {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: include text with newline "))))
+			continue
+		}
+
+		badchar, err := ascii.Validate(input)
+		if err != nil {
+			fmt.Printf("\033[31m\033[4m\033[53m"+"ERROR ⚠︎: %c invalid character\n", badchar)
+			fmt.Println("\033[0m")
+			continue
+		}
+
+		inputText = string(badchar)
 
 		break
 
 	}
-	fmt.Println(inputText)
 
 	var font string
 
@@ -307,29 +217,29 @@ o   o
 		switch colour {
 
 		case "Yellow":
-			colour = style.Yellow(inputText)
+			colour = "\033[33m"
 		case "Red":
-			colour = style.Red(inputText)
+			colour = "\033[31m"
 		case "Blue":
-			colour = style.Blue(inputText)
+			colour = "\033[34m"
 		case "Green":
-			colour = style.Green(inputText)
+			colour = "\033[32m"
 		case "Magenta":
-			colour = style.Magenta(inputText)
+			colour = "\033[35m"
 		case "Cyan":
-			colour = style.Cyan(inputText)
+			colour = "\033[36m"
 		case "Dark Red":
-			colour = style.Red(style.Dim(inputText))
+			colour = "\033[2m\033[31m"
 		case "Dark Yellow":
-			colour = style.Yellow(style.Dim(inputText))
+			colour = "\033[2m\033[33m"
 		case "Purple":
-			colour = style.Magenta(style.Dim(inputText))
+			colour = "\033[2m\033[35m"
 		case "White":
-			colour = style.White(inputText)
+			colour = "\033[37m"
 		case "Grey":
-			colour = style.Grey(inputText)
+			colour = "\033[30m"
 		case "None":
-			colour = inputText
+			colour = ""
 		default:
 			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Colour style not found"))))
 			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey"))))
@@ -356,6 +266,70 @@ o   o
 		}
 
 		Style = Case(input)
+
+		switch Style {
+		case "Bold":
+			Style = "\033[1m"
+		case "Dim":
+			Style = "\033[2m"
+		case "Italic":
+			Style = "\033[3m"
+		case "Stripes":
+			Style = "\033[4m"
+		case "None":
+			Style = ""
+		default:
+
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: style not found"))))
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes"))))
+			continue
+
+		}
+
+		break
+
+	}
+
+	input := inputText
+
+	if font == "Standard" {
+
+		banner, err := ascii.GetBanner("standard.txt")
+		if err != nil {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: unable to read file"))))
+			return
+
+		}
+
+		Output := ascii.GenerateArt(input, banner)
+		fmt.Print(colour + Style + Output + "\033[0m")
+	}
+
+	if font == "Shadow" {
+
+		banner, err := ascii.GetBanner("shadow.txt")
+		if err != nil {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: unable to read file"))))
+			return
+
+		}
+
+		Output := ascii.GenerateArt(input, banner)
+		fmt.Print(colour + Style + Output + "\033[0m")
+	}
+
+	if font == "Thinkertoy" {
+
+		banner, err := ascii.GetBanner("thinkertoy.txt")
+		if err != nil {
+			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: unable to read file"))))
+			return
+
+		}
+
+		Output := ascii.GenerateArt(input, banner)
+
+		fmt.Print(colour + Style + Output + "\033[0m")
 
 	}
 

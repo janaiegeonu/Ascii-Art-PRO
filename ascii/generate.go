@@ -25,6 +25,7 @@ func GenerateArt(input string, banner map[rune][]string) string {
 		row := Render(word, banner)
 		for _, line := range row {
 			result += (line + "\n")
+
 		}
 	}
 
