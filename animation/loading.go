@@ -30,7 +30,7 @@ func Loading(text string) string {
 
 	for i := 0; i <= 31; i++ {
 
-		fmt.Printf(style.Yellow(style.Bold("\r%s%s")), text, frame[i%len(frame)])
+		fmt.Printf(style.Yellow(style.Bold("\r%s%s"+"\033[0m")), text, frame[i%len(frame)])
 		time.Sleep(40 * time.Millisecond)
 	}
 	fmt.Println()

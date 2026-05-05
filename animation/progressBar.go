@@ -42,3 +42,41 @@ func ProgressBar(total int) {
 	fmt.Println()
 
 }
+
+func LoadingBlue(text string) {
+
+	frame := []string{
+		".       ",
+		"..      ",
+		"...     ",
+		"....    ",
+		".....   ",
+		"......  ",
+		"....... ",
+		"........",
+		"....... ",
+		"......  ",
+		".....   ",
+		"....    ",
+		"...     ",
+		"..      ",
+		".       ",
+		"        ",
+	}
+
+	for i := 0; i <= 12; i++ {
+
+		fmt.Printf(style.BlueBackground(style.Bold("\r%s%s")), text, frame[i%len(frame)])
+		time.Sleep(27 * time.Millisecond)
+	}
+
+	total := 30
+	for i := 0; i <= total; i++ {
+		bar := strings.Repeat("█", i) + strings.Repeat(" ", total-i)
+		fmt.Printf(style.Bold(style.BlueBackground("\r[%s]%d%%")), bar, 100*i/total)
+		time.Sleep(27 * time.Millisecond)
+
+	}
+	fmt.Println()
+
+}

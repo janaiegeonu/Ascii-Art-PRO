@@ -1,6 +1,7 @@
 package animation
 
 import (
+	"Ascii-art-PRO/style"
 	"fmt"
 	"time"
 )
@@ -25,7 +26,7 @@ func Rainbow(text string) {
 	}
 
 	for i := 0; i < 24; i++ {
-		fmt.Printf("\r%s%s"+"\033[1m", text, frame[i%len(frame)])
+		fmt.Printf("\r%s%s", style.Bold(text), frame[i%len(frame)])
 		time.Sleep(100 * time.Millisecond)
 	}
 	fmt.Println()
