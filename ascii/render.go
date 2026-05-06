@@ -17,7 +17,7 @@ func Render(input string, banner map[rune][]string) []string {
 				result[row] += art[row]
 			}
 		} else {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: invalid character"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: invalid character"))))
 			continue
 		}
 

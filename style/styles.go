@@ -24,7 +24,7 @@ func Underline(text string) string {
 	return red + text + reset
 }
 
-func Upperline(text string) string {
+func Overline(text string) string {
 	red := "\033[53m"
 	reset := "\033[0m"
 	return red + text + reset

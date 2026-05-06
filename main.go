@@ -43,7 +43,7 @@ func main() {
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: fullname can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: fullname can't be empty"))))
 			continue
 
 		}
@@ -52,13 +52,13 @@ func main() {
 		sym, _ := regexp.MatchString(`[[:punct:]]`, input)
 
 		if num || sym {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: only alphabetic format is allowed"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: only alphabetic format is allowed"))))
 			continue
 
 		}
 
 		if !strings.Contains(input, " ") {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: input your lastname too"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: input your lastname too"))))
 			continue
 		}
 		fullname = Case(input)
@@ -85,7 +85,7 @@ func main() {
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: option can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: option can't be empty"))))
 			continue
 		}
 
@@ -97,7 +97,7 @@ func main() {
 		case "Yes":
 			goto start1
 		default:
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: option not found"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: option not found"))))
 			continue
 		}
 
@@ -245,7 +245,7 @@ o   o
 			fmt.Print("\033[3J\033[H\033[2J")
 			return
 		} else {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Invalid Option"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Invalid Option"))))
 			continue
 		}
 
@@ -290,17 +290,17 @@ input:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Text can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Text can't be empty"))))
 			continue
 		}
 
 		if input == "None" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Text must have an input"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Text must have an input"))))
 			continue
 		}
 
 		if strings.HasPrefix(input, "\\n") && strings.HasSuffix(input, "\\n") {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: include text with newline "))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: include text with newline "))))
 			continue
 		}
 
@@ -327,7 +327,7 @@ font:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Can't be empty"))))
 			continue
 
 		}
@@ -338,7 +338,7 @@ font:
 			goto input
 		}
 		if font == "Hint" {
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Standard, Shadow, Thinkertoy, Back(previous input)"))))
+			fmt.Println(style.Yellow(style.Overline(style.Underline("SUPPORTED 🖒 : Standard, Shadow, Thinkertoy, Back(previous input)"))))
 			continue
 		}
 
@@ -347,8 +347,8 @@ font:
 		case "Shadow":
 		case "Thinkertoy":
 		default:
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: font style not found"))))
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Standard, Shadow, Thinkertoy, Back(previous input)"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: font style not found"))))
+			fmt.Println(style.Yellow(style.Overline(style.Underline("SUPPORTED 🖒 : Standard, Shadow, Thinkertoy, Back(previous input)"))))
 			continue
 		}
 
@@ -367,7 +367,7 @@ colour:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Can't be empty"))))
 			continue
 
 		}
@@ -378,7 +378,7 @@ colour:
 			goto font
 		}
 		if colour == "Hint" {
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey, None, Back(previous input)"))))
+			fmt.Println(style.Yellow(style.Overline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey, None, Back(previous input)"))))
 			continue
 		}
 
@@ -409,8 +409,8 @@ colour:
 		case "None":
 			colour = ""
 		default:
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Colour style not found"))))
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey, None, Back(previous input)"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Colour style not found"))))
+			fmt.Println(style.Yellow(style.Overline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey, None, Back(previous input)"))))
 			continue
 
 		}
@@ -428,7 +428,7 @@ colour:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: Can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: Can't be empty"))))
 			continue
 
 		}
@@ -439,7 +439,7 @@ colour:
 			goto colour
 		}
 		if Style == "Hint" {
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes"))))
+			fmt.Println(style.Yellow(style.Overline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes"))))
 			continue
 		}
 
@@ -456,8 +456,8 @@ colour:
 			Style = ""
 		default:
 
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: style not found"))))
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes, Back(previous input)"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: style not found"))))
+			fmt.Println(style.Yellow(style.Overline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes, Back(previous input)"))))
 			continue
 
 		}
@@ -472,7 +472,7 @@ colour:
 
 		banner, err := ascii.GetBanner("standard.txt")
 		if err != nil {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: unable to read file"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: unable to read file"))))
 			return
 
 		}
@@ -494,7 +494,7 @@ colour:
 
 		banner, err := ascii.GetBanner("shadow.txt")
 		if err != nil {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: unable to read file"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: unable to read file"))))
 			return
 
 		}
@@ -516,7 +516,7 @@ colour:
 
 		banner, err := ascii.GetBanner("thinkertoy.txt")
 		if err != nil {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: unable to read file"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: unable to read file"))))
 			return
 
 		}
@@ -547,7 +547,7 @@ colour:
 		input = strings.TrimSpace(input)
 
 		if input == "" {
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: option can't be empty"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: option can't be empty"))))
 			continue
 		}
 
@@ -570,7 +570,7 @@ colour:
 			fmt.Print("\033[3J\033[H\033[2J")
 			goto end
 		default:
-			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: option not found"))))
+			fmt.Println(style.Red(style.Overline(style.Underline("ERROR ⚠︎: option not found"))))
 			continue
 		}
 
