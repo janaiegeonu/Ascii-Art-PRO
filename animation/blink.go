@@ -50,12 +50,12 @@ func BlinkPro(text string) {
 	frame3 := []string{
 
 		style.Red(">"),
-		style.Yellow("💖"),
+		style.Yellow("💚"),
 	}
 	frame4 := []string{
 
 		style.Red("<"),
-		style.Yellow("💖"),
+		style.Yellow("💚"),
 	}
 	check1 := style.Yellow("｡")
 

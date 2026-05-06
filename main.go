@@ -24,6 +24,7 @@ func Case(text string) string {
 
 func main() {
 
+	fmt.Print("\033[3J\033[H\033[2J")
 	animation.TypeWriter(style.BlueBackground(style.Bold("\t          ● ASCII-ART CLI PROGRAM ●           ")))
 	(animation.Blink("      \t\t\t "))
 	fmt.Println(style.Green("___________________________________________________________________________"))
@@ -205,12 +206,22 @@ o   o
 	animation.TypeWriterSlow(style.White("‣ ITALIC"))
 	time.Sleep(200 * time.Millisecond)
 	animation.TypeWriterSlow(style.White("‣ STRIPES"))
+
+	fmt.Println()
+	animation.TypeWriterSlow(style.Yellow(style.Dim(style.Bold("\t ✳ OPERATIONS ✳ "))))
+	fmt.Println()
+	animation.TypeWriterSlow(style.White("‣ BACK : " + "\033[33m\033[2m" + "it takes the user back to Re-Edit the previous input option" + "\033[0m"))
+	time.Sleep(200 * time.Millisecond)
+	animation.TypeWriterSlow(style.White("‣ HINT : " + "\033[33m\033[2m" + "Shows the user valid option to choose" + "\033[0m"))
+	
+	fmt.Println()
+
 	time.Sleep(1600 * time.Millisecond)
 
 	fmt.Println(style.GreyBackground(" ENTER YOUR OPTION TO CONTINUE "))
 	fmt.Println()
 	fmt.Println(style.Grey("1. Enter key = To start main program"))
-	fmt.Println(style.Grey("2. End = To Terminate the program"))
+	fmt.Println(style.Grey("2. Input End = To Terminate the program"))
 	fmt.Println()
 	fmt.Println("\033[1m\033[42m"+" ENTER KEY "+"\033[0m"+"\033[0m", "|====|", "\033[1m\033[41m"+" END "+"\033[0m")
 
@@ -326,6 +337,10 @@ font:
 		if font == "Back" {
 			goto input
 		}
+		if font == "Hint" {
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Standard, Shadow, Thinkertoy, Back(previous input)"))))
+			continue
+		}
 
 		switch font {
 		case "Standard":
@@ -361,6 +376,10 @@ colour:
 
 		if colour == "Back" {
 			goto font
+		}
+		if colour == "Hint" {
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Red, Green, Blue, Yellow, Magenta, Cyan, Purple, Dark Red, Dark Yellow, White, Grey, None, Back(previous input)"))))
+			continue
 		}
 
 		switch colour {
@@ -419,22 +438,26 @@ colour:
 		if Style == "Back" {
 			goto colour
 		}
+		if Style == "Hint" {
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes"))))
+			continue
+		}
 
 		switch Style {
 		case "Bold":
 			Style = "\033[1m"
 		case "Dim":
-			Style = "\033[2m"
+			Style = "\033[1m\033[2m"
 		case "Italic":
 			Style = "\033[3m"
 		case "Stripes":
-			Style = "\033[4m"
+			Style = "\033[1m\033[4m"
 		case "None":
 			Style = ""
 		default:
 
 			fmt.Println(style.Red(style.Upperline(style.Underline("ERROR ⚠︎: style not found"))))
-			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes"))))
+			fmt.Println(style.Yellow(style.Upperline(style.Underline("SUPPORTED 🖒 : Bold, Dim, Italic, Stripes, Back(previous input)"))))
 			continue
 
 		}
